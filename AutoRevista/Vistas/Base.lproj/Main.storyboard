@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nfS-UI-arL">
+    <device id="retina3_5" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Main-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="Main" customModule="AutoRevista" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ibc-5T-7NI">
+                                <rect key="frame" x="127.5" y="221" width="65" height="38"/>
+                                <color key="tintColor" systemColor="tertiarySystemBackgroundColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Web" cornerStyle="capsule">
+                                    <backgroundConfiguration key="background">
+                                        <color key="backgroundColor" systemColor="systemRedColor"/>
+                                        <color key="strokeColor" systemColor="systemRedColor"/>
+                                    </backgroundConfiguration>
+                                    <fontDescription key="titleFontDescription" type="italicSystem" pointSize="20"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="botonWeb:" destination="BYZ-38-t0r" eventType="touchUpInside" id="f2l-h8-X0p"/>
+                                    <segue destination="YOf-vN-2es" kind="show" id="KrF-di-Toe"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo-AR" translatesAutoresizingMaskIntoConstraints="NO" id="e0m-OX-4Nb">
+                                <rect key="frame" x="88" y="61" width="144" height="60"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="e0m-OX-4Nb" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="17" id="A0V-yn-14K"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="e0m-OX-4Nb" secondAttribute="trailing" constant="88" id="ORS-d9-z2B"/>
+                            <constraint firstItem="e0m-OX-4Nb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="88" id="TLS-8t-Teg"/>
+                            <constraint firstItem="ibc-5T-7NI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="rgS-ZK-1Nx"/>
+                            <constraint firstItem="ibc-5T-7NI" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="tXR-ZG-2ZO"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="gpn-9u-Z4a"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="botonWeb" destination="ibc-5T-7NI" id="EDB-EK-5kj"/>
+                        <outlet property="imagenLogo" destination="e0m-OX-4Nb" id="BWq-P0-FIU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="16.875" y="80"/>
+        </scene>
+        <!--Vista Web-->
+        <scene sceneID="lRx-jm-cTB">
+            <objects>
+                <viewController id="YOf-vN-2es" customClass="vistaWeb" customModule="AutoRevista" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="RUs-29-3Ry">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="whA-UO-MAb">
+                                <rect key="frame" x="0.0" y="44" width="320" height="387"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="gRp-71-ycv"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="whA-UO-MAb" firstAttribute="leading" secondItem="gRp-71-ycv" secondAttribute="leading" id="4FD-xU-yGs"/>
+                            <constraint firstItem="gRp-71-ycv" firstAttribute="trailing" secondItem="whA-UO-MAb" secondAttribute="trailing" id="POa-59-Grg"/>
+                            <constraint firstItem="whA-UO-MAb" firstAttribute="top" secondItem="gRp-71-ycv" secondAttribute="top" id="cwy-AW-3Lg"/>
+                            <constraint firstItem="gRp-71-ycv" firstAttribute="bottom" secondItem="whA-UO-MAb" secondAttribute="bottom" id="r0q-BG-irx"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems>
+                        <barButtonItem image="back_btn" id="Tf0-Lt-hVX">
+                            <connections>
+                                <action selector="backButton:" destination="YOf-vN-2es" id="tWX-Cj-0CP"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="9da-Ie-7Mt"/>
+                        <barButtonItem image="forward_btn" id="v1Q-CC-AA7">
+                            <connections>
+                                <action selector="forwardButton:" destination="YOf-vN-2es" id="hGM-Oi-9bC"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" id="KWV-gs-yjT"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="backButton" destination="Tf0-Lt-hVX" id="MJj-Mv-5pl"/>
+                        <outlet property="forwardButton" destination="v1Q-CC-AA7" id="g7S-LK-fTP"/>
+                        <outlet property="webView" destination="whA-UO-MAb" id="Z2G-P7-EpC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aBW-Pg-UNb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1080" y="82"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="WQa-pb-TIL">
+            <objects>
+                <navigationController toolbarHidden="NO" id="nfS-UI-arL" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="URJ-bs-ASs">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="SJo-eK-Rs2">
+                        <rect key="frame" x="0.0" y="436" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="c7n-rX-C1f"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="j7q-ED-gMD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-980" y="82"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Logo-AR" width="250" height="60"/>
+        <image name="back_btn" width="80" height="80"/>
+        <image name="forward_btn" width="80" height="80"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="tertiarySystemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

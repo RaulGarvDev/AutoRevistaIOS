@@ -7,13 +7,19 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+class Main: UIViewController {
+    
+    @IBOutlet weak var imagenLogo: UIImageView!
+    @IBOutlet weak var botonWeb: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
 
-
+    @IBAction func botonWeb(_ sender: Any) {
+       
+    }
+    
 }
 
