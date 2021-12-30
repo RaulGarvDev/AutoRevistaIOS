@@ -21,8 +21,7 @@ final class vistaWeb: UIViewController, WKUIDelegate {
         super.viewDidLoad()
         
         
-        backButton.isEnabled = false
-        forwardButton.isEnabled = false
+    
         
         // webView
         
