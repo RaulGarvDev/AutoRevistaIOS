@@ -8,7 +8,7 @@
 import UIKit
 import WebKit
 
-final class vistaWeb: UIViewController, WKUIDelegate {
+final class vistaWeb: UIViewController, WKUIDelegate, WKNavigationDelegate {
     
     
     // MARK: - Outlets
@@ -16,6 +16,13 @@ final class vistaWeb: UIViewController, WKUIDelegate {
     @IBOutlet private var webView: WKWebView!
     @IBOutlet private var backButton: UIBarButtonItem!
     @IBOutlet private var forwardButton: UIBarButtonItem!
+    
+    private var newWebviewPopupWindow: WKWebView?
+    
+    private var myURL: URL!
+    private var myRequest: URLRequest!
+    private var webViewPrefs: WKPreferences!
+    private var webConfiguration: WKWebViewConfiguration!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,14 +35,17 @@ final class vistaWeb: UIViewController, WKUIDelegate {
        
        
     
+            webViewPrefs = WKPreferences()
+            webConfiguration = WKWebViewConfiguration()
         
-        let webViewPrefs = WKPreferences()
          
             webViewPrefs.javaScriptCanOpenWindowsAutomatically = true
+        
       
         
-        let webConfiguration = WKWebViewConfiguration()
+       
             webConfiguration.preferences = webViewPrefs
+        
             webView = WKWebView(frame: .zero, configuration: webConfiguration)
             webView.configuration.preferences.javaScriptCanOpenWindowsAutomatically = true
         
@@ -45,30 +55,48 @@ final class vistaWeb: UIViewController, WKUIDelegate {
         
     
         
-        let myURL = URL(string:"https://www.auto-revista.com")
-        let myRequest = URLRequest(url: myURL!)
-        webView.load(myRequest)
+            myURL = URL(string:"https://www.auto-revista.com")
+            myRequest = URLRequest(url: myURL!)
+            webView.load(myRequest!)
         
         
     }
     
   
     
+    // MARK: - Funciones
+    
+    func webView(_ webView: WKWebView, createWebViewWith configuration: WKWebViewConfiguration, for navigationAction: WKNavigationAction, windowFeatures: WKWindowFeatures) -> WKWebView? {
+            newWebviewPopupWindow = WKWebView(frame: view.bounds, configuration: configuration)
+            newWebviewPopupWindow!.navigationDelegate = self
+            newWebviewPopupWindow!.uiDelegate = self
+            view.addSubview(newWebviewPopupWindow!)
+            return newWebviewPopupWindow!
+        }
+
+        func webViewDidClose(_ webView: WKWebView) {
+            webView.removeFromSuperview()
+            newWebviewPopupWindow = nil
+        }
     
     
     
-    
-    
-    
+   
     
     
     // MARK: - Actions
     @IBAction func backButton(_ sender: Any) {
+        
         webView.goBack()
+        newWebviewPopupWindow?.goBack()
+    
     }
     
     @IBAction func forwardButton(_ sender: Any) {
-        webView.goForward()
+    
+          webView.goForward()
+          newWebviewPopupWindow?.goForward()
+
     }
     
 }
