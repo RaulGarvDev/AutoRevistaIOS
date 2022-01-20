@@ -8,7 +8,7 @@
 import UIKit
 import WebKit
 
-final class vistaWeb: UIViewController, WKUIDelegate, WKNavigationDelegate {
+final class VistaWeb: UIViewController, WKUIDelegate, WKNavigationDelegate {
     
     
     // MARK: - Outlets
